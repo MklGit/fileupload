@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--
+  1. commons-fileupload  Apache提供 使用该组件提供的对象及操作方法，可以获得上传文件的全部信息，包括文件类型、大小、名称等
+  2. form表单必须使用POST方式提交
+  3. form表单必须设置 enctype属性,该属性用于设置表单提交数据的编码方式，值为multipart/form-data
+        enctype属性共有三个值，如下
+            1、application/x-www-form-urlencoded，默认值，该属性值主要用于处理少量文本数据的传递，处理二进制数据、非ASCII编码文本时，效率低；
+            2、multipart/form-data，上传二进制数据，只有使用了multipart/form-data属性值才能完整地传递文件数据；
+            3、text/plain，主要用于向服务器传递大量文本数据，如电子邮件、发布长篇新闻等。
+-->
+<form method="POST" enctype="multipart/form-data" th:action="@{/fileupload01}">
+    <!-- <input type="file" name="file" multiple>，加上multiple属性，可以一次上传多个文件-->
+    File to upload: <input type="file" name="file"><br/>
+    Tips: <span th:text="${Str}"></span><br/>
+    <input type="submit" value="Upload">
+</form>
+<br/>
+<br/>
+<!--<form method="POST" enctype="multipart/form-data" th:action="@{/fileupload02}" >-->
+<!--    &lt;!&ndash; <input type="file" name="file" multiple>，加上multiple属性，可以一次上传多个文件&ndash;&gt;-->
+<!--    File to upload: <input type="file" name="file" ><br/>-->
+<!--    Tips: <span th:text="${Str}"></span><br/>-->
+<!--    <input type="submit" value="Upload">-->
+<!--</form>-->
+</body>
