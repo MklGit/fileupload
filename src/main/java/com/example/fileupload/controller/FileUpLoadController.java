@@ -33,13 +33,13 @@ public class FileUpLoadController {
 
     @GetMapping("/")
     public String index () {
-        return "fileuploadPage";
+        return "index";
     }
 
     @GetMapping("/fileuploadPage")
     public String fileuploadPage (Model model) {
         model.addAttribute ("Str", "fileuploadPage");
-        return "fileupload";
+        return "index";
     }
 
     @PostMapping("/fileupload01")
@@ -47,7 +47,7 @@ public class FileUpLoadController {
         System.out.println ("开始");
         if (file.isEmpty ()) {
             model.addAttribute ("Str", "上传失败，请选择文件");
-            return "fileupload";
+            return "index";
         }
         // todo 选择了文件，开始上传操作
         try {
@@ -77,7 +77,7 @@ public class FileUpLoadController {
             model.addAttribute ("Str", "上传失败");
             e.printStackTrace ();
         }
-        return "fileupload";
+        return "index";
     }
 
     //ATTENTION!!!!!
@@ -113,7 +113,7 @@ public class FileUpLoadController {
                 System.out.println ("itemList.size () = " + itemList.size ());
                 if (null == itemList || itemList.size () == 0) {
                     model.addAttribute ("Str", "上传失败");
-                    return "fileupload";
+                    return "index";
                 } else {
                     // todo 迭代器
                     Iterator<FileItem> iterator = itemList.iterator ();
@@ -145,6 +145,6 @@ public class FileUpLoadController {
             model.addAttribute ("Str", "上传失败");
             LOGGER.error (e.toString (), e);
         }
-        return "fileupload";
+        return "index";
     }
 }
