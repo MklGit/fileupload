@@ -36,12 +36,6 @@ public class FileUpLoadController {
         return "index";
     }
 
-    @GetMapping("/fileuploadPage")
-    public String fileuploadPage (Model model) {
-        model.addAttribute ("Str", "fileuploadPage");
-        return "index";
-    }
-
     @PostMapping("/fileupload01")
     public String fileupload01 (MultipartFile file, Model model) {
         System.out.println ("开始");
